@@ -2,8 +2,8 @@
   "name": "am-create-express",
   "version": "0.0.1",
   "description": "Express project generator",
-  "main": "lib/cli.js",
-  "bin": "lib/cli.js",
+  "main": "./lib/cli.js",
+  "bin": "./lib/cli.js",
   "scripts": {
     "start": "node lib/cli.js",
     "build": "swc ./lib -d bin --copy-files",
