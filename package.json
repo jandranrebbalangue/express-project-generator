@@ -4,11 +4,11 @@
   "description": "Project Generator express",
   "main": "lib/cli.js",
   "bin": {
-    "jandranrebbalangue-project-generator": "lib/cli.js"
+    "create-express-proj": "lib/cli.js"
   },
   "scripts": {
     "start": "node lib/cli.js",
-    "jandranrebbalangue-project-generator": "node lib/cli.js",
+    "create-express-proj": "node lib/cli.js",
     "build": "swc ./lib -d bin --copy-files",
     "release": "npm run build && npm publish --access public"
   },
@@ -19,10 +19,11 @@
   },
   "license": "MIT",
   "dependencies": {
-    "debug": "^4.3.4",
+    "chalk": "^4.1.0",
+    "commander": "^11.0.0",
     "dotenv": "^16.3.1",
-    "minimist": "^1.2.8",
-    "ncp": "^2.0.0"
+    "fs-extra": "^11.1.1",
+    "minimist": "^1.2.8"
   },
   "devDependencies": {
     "@swc/cli": "^0.1.62",
