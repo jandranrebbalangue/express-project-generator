@@ -5,13 +5,13 @@ Convenient way to scaffold express project
 ## Installation
 
 ```sh
-$ npm install -g @am/create-express
+$ npm install -g am-create-express
 ```
 
 ## Quick Start
 
 The quickest way to get started is use npx and pass in the name of the project you want to create.
-Create the app:`$ npx @am/create-express "project name"`
+Create the app:`$ npx am-create-express "project name"`
 
 Start your express app in development mode at `http://localhost:3000/`:
 
