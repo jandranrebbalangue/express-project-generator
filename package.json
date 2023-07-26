@@ -1,14 +1,11 @@
 {
-  "name": "@jandranrebbalangue/express-js",
-  "version": "0.1.12",
-  "description": "Project Generator express",
+  "name": "@am/create-express",
+  "version": "0.1.0",
+  "description": "Express project generator",
   "main": "lib/cli.js",
-  "bin": {
-    "create-express-proj": "lib/cli.js"
-  },
+  "bin": "lib/cli.js",
   "scripts": {
     "start": "node lib/cli.js",
-    "create-express-proj": "node lib/cli.js",
     "build": "swc ./lib -d bin --copy-files",
     "release": "npm run build && npm publish --access public"
   },
