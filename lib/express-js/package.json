@@ -5,8 +5,8 @@
   "main": "./src/server.js",
   "type": "module",
   "scripts": {
-    "start": "node ./src/server.js",
-    "dev": "DEBUG=app:* nodemon ./src/server.js",
+    "start": "node ./server.js",
+    "dev": "DEBUG=app:* nodemon ./server.js",
     "test": "mocha ./src/test/* --timeout 10000 --exit"
   },
   "author": "",
