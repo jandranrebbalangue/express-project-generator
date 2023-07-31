@@ -8,7 +8,6 @@
     "dev": "DEBUG=app:* nodemon ./server.js",
     "test": "mocha ./src/test/* --timeout 10000 --exit"
   },
-  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "debug": "^4.3.4",
