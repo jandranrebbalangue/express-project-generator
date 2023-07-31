@@ -11,3 +11,9 @@
    ```bash
    npm run dev
    ```
+
+3. To run the test
+
+   ```bash
+   npm run test
+   ```
