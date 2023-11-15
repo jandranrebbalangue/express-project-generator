@@ -140,7 +140,7 @@ router.post("/person", authMiddleware, async (req: Request, res: Response) => {
   res.status(201).send({ success: true, message: response })
 })
 
-router.get("/persons", authMiddleware, async (req: Request, res: Response) => {
+router.get("/people", authMiddleware, async (req: Request, res: Response) => {
   await mongoConnect()
   const list = makeList({ model: Person })
   const response = await list()
