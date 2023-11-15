@@ -5,7 +5,11 @@ import makeCreate from "../use-cases/create"
 import Person from "../models/entities/person"
 import { mongoConnect } from "../models"
 import { JWT_SECRET } from "../constants"
-import { type AuthenticateProps, type IPerson, type PersonRequest } from "../types/types"
+import {
+  type AuthenticateProps,
+  type IPerson,
+  type PersonRequest
+} from "../types/types"
 import authMiddleware from "../middlewares/auth"
 import makeList from "../use-cases/list"
 const router = Router()
@@ -133,14 +137,14 @@ router.post("/person", authMiddleware, async (req: Request, res: Response) => {
   const create = makeCreate({ model: Person })
   const response = await create(payload)
   Debug("app:payload")({ payload })
-  res.status(200).send({ success: true, message: response })
+  res.status(201).send({ success: true, message: response })
 })
 
-router.get("/person", authMiddleware, async (req: Request, res: Response) => {
+router.get("/persons", authMiddleware, async (req: Request, res: Response) => {
   await mongoConnect()
   const list = makeList({ model: Person })
   const response = await list()
-  Debug("app:response")("Hello World")
+  Debug("app:response")({ response })
   res.status(200).send({ success: true, message: response })
 })
 
