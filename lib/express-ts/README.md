@@ -8,6 +8,10 @@ This project was created with [express-project-generator]
 
 Run the server in development mode.
 
+### `yarn test`
+
+Run test.
+
 ### `yarn lint`
 
 Check for linting errors.
