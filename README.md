@@ -16,5 +16,5 @@ Create the app:`$ npx am-create-express "project name"`
 Start your express app in development mode at `http://localhost:3000/`:
 
 ```bash
-$ cd "project name" && npm install &&  npm run dev
+$ cd "project name" && yarn install && yarn dev
 ```
