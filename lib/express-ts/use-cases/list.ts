@@ -1,8 +1,8 @@
-import { Model } from "mongoose"
+import { type Collection } from "mongoose"
 
-const makeList = <T>({ model }: { model: Model<T> }) => {
+const makeList = ({ model }: { model: Collection }) => {
   const list = async () => {
-    const res = await model.find({})
+    const res = model.find({})
     return res
   }
   return list

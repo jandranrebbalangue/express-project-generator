@@ -16,7 +16,7 @@ export default function authMiddleware(
     return
   }
 
-  let token: any
+  let token = ""
   if (authorization !== "") {
     const [bearer, tokenAuth] = authorization.split(" ")
     Debug("app:bearer")({ bearer })

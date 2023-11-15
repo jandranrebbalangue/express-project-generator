@@ -1,10 +1,10 @@
-import mongoose from "mongoose"
+import mongoose, { connect, type Mongoose } from "mongoose"
 import debug from "debug"
 
 const log = debug("mongodb")
 
-let conn: any = null
-export const mongoConnect = async () => {
+let conn: Mongoose | null = null
+export const mongoConnect = async (): Promise<Mongoose> => {
   if (conn !== null) {
     log("Reusing DB client")
     return conn
@@ -15,14 +15,14 @@ export const mongoConnect = async () => {
 
   try {
     log("Creating new DB client")
-    conn = await mongoose.connect(MONGO_URL as string, {
+    conn = await connect(MONGO_URL as string, {
       serverSelectionTimeoutMS: 15000
     })
     log("Connected", conn)
 
     // `await`ing connection after assigning to the `conn` variable
     // to avoid multiple function calls creating new connections
-    await conn
+    await Promise.resolve(conn)
 
     // create index
     // await createIndex({ name: 1 }, { unique: true });
@@ -34,8 +34,8 @@ export const mongoConnect = async () => {
   return conn
 }
 
-export const mongoDisconnect = async () => {
-  if (conn) await mongoose.connection.close()
+export const mongoDisconnect = async (): Promise<void> => {
+  if (conn != null) await mongoose.connection.close()
   conn = null
   log("DB disconnected")
 }

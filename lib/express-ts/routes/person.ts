@@ -5,7 +5,7 @@ import makeCreate from "../use-cases/create"
 import Person from "../models/entities/person"
 import { mongoConnect } from "../models"
 import { JWT_SECRET } from "../constants"
-import { AuthenticateProps, IPerson, PersonRequest } from "../types/types"
+import { type AuthenticateProps, type IPerson, type PersonRequest } from "../types/types"
 import authMiddleware from "../middlewares/auth"
 import makeList from "../use-cases/list"
 const router = Router()

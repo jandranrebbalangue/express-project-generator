@@ -1,5 +1,5 @@
-import mongoose, { InferSchemaType } from "mongoose"
-import { IPerson } from "../../types/types"
+import mongoose, { type InferSchemaType } from "mongoose"
+import { type IPerson } from "../../types/types"
 
 const personSchema = new mongoose.Schema<IPerson>(
   {
