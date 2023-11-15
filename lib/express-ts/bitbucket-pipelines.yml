@@ -1,0 +1,79 @@
+image: node:18.13.0
+
+definitions:
+  caches:
+    yarn: $HOME/.yarn
+
+  services:
+    mongo:
+      image: mongo:5
+      variables:
+        MONGO_INITDB_ROOT_USERNAME: root
+        MONGO_INITDB_ROOT_PASSWORD: password
+  steps:
+    - step:
+      name: Yarn install
+      script:
+        - yarn set version latest
+    - step: &build-test
+        name: Build and Test
+        script:
+          - yarn install
+          - yarn test
+          - yarn build
+        artifacts:
+          - dist/**
+        services:
+          - mongo
+    - step: &deploy-staging
+        name: Deploy to staging
+        deployment: Staging
+        trigger: manual
+        script:
+          - pipe: atlassian/ssh-run:0.4.2
+            variables:
+              SSH_USER: "jan"
+              SERVER: "66.85.76.130"
+              PORT: "33033"
+              COMMAND: "node --version"
+          - yarn global add pm2
+          - yarn install
+          - yarn deploy:staging
+    - step: &deploy-production
+        name: Deploy to production
+        deployment: Production
+        script:
+          - pipe: atlassian/ssh-run:0.5.2
+            variables:
+              SSH_USER: "jan"
+              SERVER: "66.85.76.130"
+              PORT: "33033"
+              COMMAND: "node --version"
+          - yarn global add pm2
+          - yarn install
+          - yarn deploy:prod
+pipelines:
+  default:
+    - step:
+        name: Packages
+        caches:
+          - yarn
+        script:
+          - yarn install
+  pull-requests:
+    feature/*:
+      - step: *build-test
+      - step: *deploy-staging
+    bugfix/*:
+      - step: *build-test
+      - step: *deploy-staging
+    hotfix/*:
+      - step: *build-test
+      - step: *deploy-staging
+  branches:
+    master:
+      - step: *build-test
+      - step: *deploy-production
+    staging:
+      - step: *build-test
+      - step: *deploy-staging
