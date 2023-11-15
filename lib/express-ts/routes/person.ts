@@ -65,7 +65,7 @@ router.post("/authenticate", async (req: Request, res: Response) => {
         username: email
       }
     }
-    const token = jwt.sign({ user: response }, privateKey, { expiresIn: "1h" })
+    const token = jwt.sign({ user: response }, privateKey, { expiresIn: "1d" })
     Debug("app:token")({ token })
     req.token = token
     res.json({ success: true, message: token })
