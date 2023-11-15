@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node ./lib/cli.js",
     "build": "swc ./lib -d bin --copy-files",
-    "release": "npm run build && npm publish --access public"
+    "release": "release-it"
   },
   "author": {
     "name": "Jan Dranreb Balangue",
@@ -29,6 +29,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
     "nodemon": "^3.0.1",
-    "prettier": "^3.0.0"
+    "prettier": "^3.0.0",
+    "release-it": "^17.0.0"
   }
 }
