@@ -1,5 +1,10 @@
 import type mongoose from "mongoose"
 import { type Models } from "mongoose"
+
+export interface ResponseBody {
+  message: { _id: mongoose.Types.ObjectId }
+}
+
 export interface AuthenticateProps {
   email: string
   password: string
