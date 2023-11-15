@@ -1,28 +1,17 @@
-# Development
+## About
 
-1. Clone project
+This project was created with [express-project-generator]
 
-   ```bash
-   git clone git@bitbucket.org:iamruin/mms-bounce-recovery.git
-   mms-bounce-recovery
-   ```
+## Available Scripts
 
-2. Install dependencies
+### `yarn dev`
 
-   ```bash
-   yarn install
-   ```
+Run the server in development mode.
 
-3. Install and run mongodb through docker
+### `yarn lint`
 
-   ```bash
-   yarn start:db
-   ```
+Check for linting errors.
 
-4. Modify and update .env 
+### `yarn build`
 
-5. To run the api
-
-   ```bash
-   yarn dev
-   ```
+Build the project for production.
