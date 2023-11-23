@@ -1,6 +1,6 @@
 {
   "name": "am-create-express",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Express project generator",
   "main": "./lib/cli.js",
   "bin": "./lib/cli.js",
