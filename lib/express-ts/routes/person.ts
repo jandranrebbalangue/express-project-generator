@@ -126,7 +126,7 @@ router.post("/authenticate", async (req: Request, res: Response) => {
  *
  */
 
-router.post("/person", authMiddleware, async (req: Request, res: Response) => {
+router.post("/people", authMiddleware, async (req: Request, res: Response) => {
   await mongoConnect()
   const personRequest: PersonRequest = req.body
   const payload: IPerson = {
