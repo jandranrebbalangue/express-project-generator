@@ -24,7 +24,7 @@ describe("Person endpoints", () => {
   Persons.forEach((data) => {
     it(`should create person ${data.name} and return 200 OK with data if valid token is provided`, async () => {
       const response = await request(app)
-        .post("/person")
+        .post("/people")
         .set("Authorization", `Bearer ${token as string}`)
         .set("Content-Type", "application/json")
         .send(data)
@@ -33,7 +33,8 @@ describe("Person endpoints", () => {
       expect(response.status).toBe(201)
     })
   })
-  it("return all people", async () => {
+
+  it("should return all people", async () => {
     const response = await request(app)
       .get("/people")
       .set("Authorization", `Bearer ${token as string}`)
@@ -41,12 +42,13 @@ describe("Person endpoints", () => {
     expect(response.body.message[0]).toHaveProperty("age")
     expect(response.body.message[0]).toHaveProperty("email")
     expect(response.body.message).toHaveLength(3)
+    expect(response.status).toBe(200)
   })
 
   it("should return 401 Unauthorized if no token is provided", async () => {
     const payload = { firstName: "John", lastName: "Doe" }
     const res = await request(app)
-      .post("/person")
+      .post("/people")
       .send(payload)
       .set("Content-Type", "application/json")
     expect(res.status).toBe(401)
