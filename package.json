@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node ./lib/cli.js",
     "build": "swc ./lib -d bin --copy-files",
-    "release": "release-it"
+    "release": "release-it",
+    "release:dryrun": "release-it --dry-run"
   },
   "author": {
     "name": "Jan Dranreb Balangue",
