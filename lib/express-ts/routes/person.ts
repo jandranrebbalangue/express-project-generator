@@ -101,7 +101,7 @@ router.post("/authenticate", async (req: Request, res: Response) => {
  *           description: The user's age.
  *           example: 18
  *
- * /person:
+ * /people:
  *   post:
  *     summary: Post a Data from Person Data.
  *     requestBody:
